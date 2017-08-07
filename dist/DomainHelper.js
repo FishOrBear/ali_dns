@@ -15,7 +15,7 @@ var DomainHelper = (function () {
     DomainHelper.addDomainRecord = function (ip, rr, type) {
         if (type === void 0) { type = 'A'; }
         var record = new model_1.DomainRecord(rr, type, ip);
-        var addDomainRecordUrl = tool_1.getQueryUrl(DomainHelper.accessKeyId, DomainHelper.secret, record);
+        var addDomainRecordUrl = tool_1.getQueryUrl(DomainHelper.domain, DomainHelper.accessKeyId, DomainHelper.secret, record);
         return httpHelper_1.httpHelper.get(addDomainRecordUrl);
     };
     /**
@@ -23,14 +23,14 @@ var DomainHelper = (function () {
      */
     DomainHelper.getDomainRecordList = function () {
         var record = new model_1.DescribeDomainQueryParam();
-        var addDomainRecordUrl = tool_1.getQueryUrl(DomainHelper.accessKeyId, DomainHelper.secret, record);
+        var addDomainRecordUrl = tool_1.getQueryUrl(DomainHelper.domain, DomainHelper.accessKeyId, DomainHelper.secret, record);
         return httpHelper_1.httpHelper.get(addDomainRecordUrl);
     };
     /**
      * 获取类型列表
      */
     DomainHelper.delDomainRecord = function (recordId) {
-        var addDomainRecordUrl = tool_1.getQueryUrl(DomainHelper.accessKeyId, DomainHelper.secret, { Action: 'DeleteDomainRecord', RecordId: recordId });
+        var addDomainRecordUrl = tool_1.getQueryUrl(DomainHelper.domain, DomainHelper.accessKeyId, DomainHelper.secret, { Action: 'DeleteDomainRecord', RecordId: recordId });
         return httpHelper_1.httpHelper.get(addDomainRecordUrl);
     };
     return DomainHelper;

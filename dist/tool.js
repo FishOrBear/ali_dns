@@ -22,11 +22,11 @@ var valiKeyAndSecret = function (key, secret) {
 var SEPARATOR = "&";
 var HTTP_METHOD = "GET";
 var baseReqUrl = "http://alidns.aliyuncs.com";
-exports.getQueryUrl = function (accessKeyId, secret, params) {
+exports.getQueryUrl = function (domain, accessKeyId, secret, params) {
     valiKeyAndSecret(accessKeyId, secret);
     var queryObj = {};
     queryObj.Action = "DescribeDomainRecords";
-    queryObj.DomainName = "dapaer.cn";
+    queryObj.DomainName = domain;
     queryObj.Version = "2015-01-09";
     queryObj.AccessKeyId = accessKeyId;
     queryObj.Timestamp = (new Date()).toISOString().split('.')[0] + "Z" + "";
